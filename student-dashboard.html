@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard — Hostel Portal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="institute-bar">
+    <div class="logo-badge">🎓</div>
+    <div>
+      <h1>Einstein Academy of Technology and Management</h1>
+      <small>Student Dashboard</small>
+    </div>
+    <div class="bar-right">
+      <span class="user-chip">Welcome, <b id="userChipName">Student</b></span>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <div class="dashboard-shell">
+    <nav class="sidebar">
+      <div class="nav-item active" data-section="sec-profile">👤 Profile</div>
+      <div class="nav-item" data-section="sec-idcard">🪪 Digital ID Card</div>
+      <div class="nav-item" data-section="sec-leave">📝 Leave Application</div>
+      <div class="nav-item" data-section="sec-complaints">📢 Complain Box</div>
+      <div class="nav-item" data-section="sec-password">🔑 Change Password</div>
+    </nav>
+
+    <main class="dashboard-main">
+
+      <section class="dashboard-section active" id="sec-profile">
+        <h2 class="section-heading">My Profile</h2>
+        <div class="card">
+          <div class="profile-top">
+            <img id="profilePhoto" class="profile-photo-img" alt="Profile photo">
+            <div>
+              <h3 id="profileName"></h3>
+              <div class="muted-note" id="profileMeta"></div>
+            </div>
+          </div>
+
+          <div id="photoUploadRow" class="hidden" style="margin:14px 0;">
+            <label style="font-size:.8rem; color:var(--text-muted); display:block; margin-bottom:6px;">Upload new photo (optional)</label>
+            <input type="file" id="newPhotoInput" accept="image/jpeg,image/png">
+          </div>
+
+          <h4 style="margin:18px 0 8px; font-size:.85rem; color:var(--text-muted);">Fixed Details (contact Admin to change)</h4>
+          <div class="info-grid" id="lockedGrid"></div>
+
+          <h4 style="margin:18px 0 8px; font-size:.85rem; color:var(--text-muted);">Editable Details</h4>
+          <div class="info-grid" id="editableGrid"></div>
+
+          <div style="margin-top:20px;">
+            <button class="edit-btn" id="editProfileBtn" data-editing="false">✏️ Edit Contact Details</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section" id="sec-idcard">
+        <h2 class="section-heading">Digital Hostel ID Card</h2>
+        <div class="card">
+          <div id="idCardBox"></div>
+          <div style="margin-top:18px;">
+            <button class="edit-btn" id="printIdBtn">🖨️ Print / Save as PDF</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section" id="sec-leave">
+        <h2 class="section-heading">Leave / Outing Application</h2>
+        <div class="card">
+          <form id="leaveForm">
+            <div class="form-row">
+              <div class="form-field"><label>From Date</label><input type="date" id="leaveFrom" required></div>
+              <div class="form-field"><label>To Date</label><input type="date" id="leaveTo" required></div>
+            </div>
+            <div class="form-field" style="margin-bottom:14px;">
+              <label>Reason</label>
+              <textarea id="leaveReason" rows="2" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Application</button>
+          </form>
+        </div>
+        <h2 class="section-heading" style="font-size:1.05rem;">My Applications</h2>
+        <div class="card" id="leaveList"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-complaints">
+        <h2 class="section-heading">Complaints & Grievances</h2>
+        <div class="card">
+          <form id="complaintForm" class="form-row" style="align-items:flex-end;">
+            <div class="form-field">
+              <label>Describe the issue</label>
+              <input type="text" id="complaintInput" maxlength="160" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+        <h2 class="section-heading" style="font-size:1.05rem;">Submitted Complaints</h2>
+        <div class="card" id="complaintList"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-password">
+        <h2 class="section-heading">Change Password</h2>
+        <div class="card" style="max-width:400px;">
+          <div class="error-msg" id="pwMessage"></div>
+          <form id="pwForm">
+            <div class="form-field" style="margin-bottom:14px;"><label>Current Password</label><input type="password" id="currentPw" required></div>
+            <div class="form-field" style="margin-bottom:14px;"><label>New Password</label><input type="password" id="newPw" required></div>
+            <div class="form-field" style="margin-bottom:18px;"><label>Confirm New Password</label><input type="password" id="confirmPw" required></div>
+            <button type="submit" class="submit-btn">Update Password</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script type="module" src="js/student-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Hostel Portal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="institute-bar">
+    <div class="logo-badge">🎓</div>
+    <div>
+      <h1>Einstein Academy of Technology and Management</h1>
+      <small>Admin Panel — <span id="currentHostelLabel"></span></small>
+    </div>
+    <div class="bar-right">
+      <button class="logout-btn" id="switchHostelBtn">Switch Hostel</button>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <div class="dashboard-shell">
+    <nav class="sidebar">
+      <div class="nav-item active" data-section="sec-pending">🕓 Pending Registrations</div>
+      <div class="nav-item" data-section="sec-students">🏠 Room-wise Students</div>
+      <div class="nav-item" data-section="sec-trash">🗑️ Trash</div>
+      <div class="nav-item" data-section="sec-leaverequests">📝 Leave Requests</div>
+      <div class="nav-item" data-section="sec-complaints">📢 Complaints</div>
+      <div class="nav-item" data-section="sec-notices">📌 Notice Board</div>
+      <div class="nav-item" data-section="sec-gallery">🖼️ Gallery</div>
+      <div class="nav-item" data-section="sec-settings">⚙️ Hostel Contact Info</div>
+    </nav>
+
+    <main class="dashboard-main">
+
+      <section class="dashboard-section active" id="sec-pending">
+        <h2 class="section-heading">Pending Registrations</h2>
+        <div id="pendingList"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-students">
+        <h2 class="section-heading">Room-wise Students</h2>
+        <div id="studentsTable"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-trash">
+        <h2 class="section-heading">Trash</h2>
+        <div id="trashList"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-leaverequests">
+        <h2 class="section-heading">Leave Requests</h2>
+        <div id="leaveRequestsList"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-complaints">
+        <h2 class="section-heading">Complaints</h2>
+        <div id="complaintsList"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-notices">
+        <h2 class="section-heading">Notice Board</h2>
+        <div class="card">
+          <form id="noticeForm">
+            <div class="form-field" style="margin-bottom:12px;"><label>Title</label><input type="text" id="noticeTitle" required></div>
+            <div class="form-field" style="margin-bottom:14px;"><label>Message</label><textarea id="noticeBody" rows="2" required></textarea></div>
+            <button type="submit" class="submit-btn">Post Notice</button>
+          </form>
+        </div>
+        <div id="noticesAdminList"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-gallery">
+        <h2 class="section-heading">Gallery</h2>
+        <div class="card">
+          <label style="font-size:.85rem; color:var(--text-muted); display:block; margin-bottom:8px;">Upload a photo</label>
+          <input type="file" id="galleryUploadInput" accept="image/jpeg,image/png">
+        </div>
+        <div class="gallery-grid" id="galleryAdminGrid"></div>
+      </section>
+
+      <section class="dashboard-section" id="sec-settings">
+        <h2 class="section-heading">Hostel Contact Info (shown on public Contact page)</h2>
+        <div class="card" style="max-width:420px;">
+          <div class="form-field" style="margin-bottom:12px;"><label>Warden Name</label><input type="text" id="wardenName"></div>
+          <div class="form-field" style="margin-bottom:12px;"><label>Warden Phone</label><input type="text" id="wardenPhone"></div>
+          <div class="form-field" style="margin-bottom:16px;"><label>Hostel Email</label><input type="text" id="hostelEmailInfo"></div>
+          <button id="saveSettingsBtn" class="submit-btn">Save</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Edit Student Modal -->
+  <div class="modal-overlay hidden" id="editModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3>Edit Student</h3>
+        <button id="closeEditModal">✕</button>
+      </div>
+      <div id="editModalBody"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/admin-dashboard.js"></script>
+</body>
+</html>

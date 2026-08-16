@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firebase Connection Test</title>
+<style>
+  body{ font-family:Arial, sans-serif; max-width:600px; margin:60px auto; padding:0 20px; }
+  h1{ color:#123B69; }
+  #result{ margin-top:20px; padding:16px; border-radius:8px; font-size:15px; white-space:pre-wrap; }
+  .success{ background:#E5F6ED; color:#1E8E5A; border:1px solid #1E8E5A; }
+  .error{ background:#FBE7E7; color:#C13A3A; border:1px solid #C13A3A; }
+  .loading{ background:#FCF3DA; color:#B9820A; border:1px solid #B9820A; }
+</style>
+</head>
+<body>
+
+  <h1>🔌 Firebase Connection Test</h1>
+  <p>This page tries to write one test document to Firestore, then read it back. If it works, the real project setup is good to go.</p>
+
+  <div id="result" class="loading">Testing connection…</div>
+
+  <script type="module">
+    import { db } from './js/firebase-config.js';
+    import { doc, setDoc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const resultBox = document.getElementById('result');
+
+    async function runTest(){
+      try{
+        // 1. Write a test document
+        const testRef = doc(db, "connection_test", "ping");
+        await setDoc(testRef, { message: "Hello from Smart Hostel Portal", time: Date.now() });
+
+        // 2. Read it back
+        const snap = await getDoc(testRef);
+        if(!snap.exists()){
+          throw new Error("Document was written but could not be read back.");
+        }
+
+        // 3. Clean up the test document
+        await deleteDoc(testRef);
+
+        resultBox.className = 'success';
+        resultBox.textContent = '✅ SUCCESS! Firebase Authentication + Firestore are correctly connected.\n\nYou can move to the next step now.';
+      } catch(err){
+        resultBox.className = 'error';
+        resultBox.textContent = '❌ ERROR — something is not connected properly:\n\n' + err.message + '\n\nCopy this exact error message and share it so it can be fixed.';
+      }
+    }
+
+    runTest();
+  </script>
+
+</body>
+</html>

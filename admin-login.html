@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Hostel Portal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="institute-bar">
+    <div class="logo-badge">🎓</div>
+    <div>
+      <h1>Einstein Academy of Technology and Management</h1>
+      <small>Smart Hostel Student Information System</small>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="notice-board.html">Notice Board</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin-login.html" class="active">Admin</a>
+  </nav>
+
+  <main>
+    <section class="standalone-login">
+      <div class="login-box">
+        <h3>🔐 Admin Login</h3>
+        <p class="box-sub">Authorized personnel only</p>
+
+        <div class="error-msg" id="adminLoginError"></div>
+
+        <form id="adminLoginForm">
+          <div class="field-group">
+            <label for="adminId">Admin ID</label>
+            <input type="text" id="adminId" placeholder="Admin ID" required>
+          </div>
+          <div class="field-group">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter password" required>
+            <button type="button" class="toggle-pw" data-target="adminPassword">👁️</button>
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Smart Hostel Student Information System &middot; Einstein Academy of Technology and Management
+  </footer>
+
+  <script type="module" src="js/admin-login.js"></script>
+</body>
+</html>

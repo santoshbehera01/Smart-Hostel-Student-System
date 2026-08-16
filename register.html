@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Student Registration — Hostel Portal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="institute-bar">
+    <div class="logo-badge">🎓</div>
+    <div>
+      <h1>Einstein Academy of Technology and Management</h1>
+      <small>Smart Hostel Student Information System</small>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="notice-board.html">Notice Board</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin-login.html">Admin</a>
+  </nav>
+
+  <main class="register-wrap">
+    <h2 class="page-title">New Student Registration</h2>
+    <p class="page-sub">Fields marked with <span class="req">*</span> are required.</p>
+
+    <div class="error-msg" id="registerError"></div>
+    <div class="success-msg" id="registerSuccess"></div>
+
+    <form id="registerForm">
+
+      <!-- ===== Section: Verify Email first ===== -->
+      <fieldset class="form-section">
+        <legend>Step 1 — Verify Your Email</legend>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-field">
+            <label>Email ID <span class="req">*</span></label>
+            <input type="email" id="email" required>
+          </div>
+        </div>
+        <button type="button" id="sendOtpBtn" class="secondary-btn">Send OTP</button>
+
+        <div id="otpSection" class="hidden" style="margin-top:14px;">
+          <div class="form-row">
+            <div class="form-field">
+              <label>Enter 6-digit OTP</label>
+              <input type="text" id="otpCode" maxlength="6" placeholder="123456">
+            </div>
+          </div>
+          <button type="button" id="verifyOtpBtn" class="secondary-btn">Verify Email</button>
+        </div>
+      </fieldset>
+
+      <!-- ===== Rest of the form, hidden until email is verified ===== -->
+      <div id="restOfForm" class="hidden">
+
+        <fieldset class="form-section">
+          <legend>Hostel & Room Details</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Hostel <span class="req">*</span></label>
+              <select id="hostel" required>
+                <option value="">Select Hostel</option>
+                <option value="main-boys-hostel">Main Boys Hostel</option>
+                <option value="e-block-hostel">E-Block Hostel</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Room No <span class="req">*</span></label>
+              <input type="text" id="roomNo" required>
+            </div>
+            <div class="form-field">
+              <label>Registration No <span class="req">*</span></label>
+              <input type="text" id="regdNo" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Account Details</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" required>
+            </div>
+            <div class="form-field">
+              <label>Set Password <span class="req">*</span></label>
+              <input type="password" id="password" required>
+            </div>
+            <div class="form-field">
+              <label>Confirm Password <span class="req">*</span></label>
+              <input type="password" id="confirmPassword" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Academic Details</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Course <span class="req">*</span></label>
+              <input type="text" id="course" required>
+            </div>
+            <div class="form-field">
+              <label>Session <span class="req">*</span></label>
+              <input type="text" id="session" placeholder="e.g. 2024-2028" required>
+            </div>
+            <div class="form-field">
+              <label>Branch</label>
+              <input type="text" id="branch">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Date of Birth <span class="req">*</span></label>
+              <input type="date" id="dob" required>
+            </div>
+            <div class="form-field">
+              <label>Category <span class="req">*</span></label>
+              <select id="category" required>
+                <option value="">Select</option>
+                <option value="GEN">GEN</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Blood Group</label>
+              <input type="text" id="bloodGroup" placeholder="e.g. B+">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Photo</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Upload Photo <span class="req">*</span> (JPG/PNG, max 1MB)</label>
+              <input type="file" id="photo" accept="image/jpeg,image/png" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Parent / Guardian Details</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Father's Name <span class="req">*</span></label>
+              <input type="text" id="fatherName" required>
+            </div>
+            <div class="form-field">
+              <label>Father's Phone Number <span class="req">*</span></label>
+              <input type="tel" id="fatherPhone" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Mother's Name <span class="req">*</span></label>
+              <input type="text" id="motherName" required>
+            </div>
+            <div class="form-field">
+              <label>Mother's Phone Number <span class="req">*</span></label>
+              <input type="tel" id="motherPhone" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Permanent Address</legend>
+          <div class="form-row">
+            <div class="form-field"><label>At <span class="req">*</span></label><input type="text" id="addrAt" required></div>
+            <div class="form-field"><label>Po <span class="req">*</span></label><input type="text" id="addrPo" required></div>
+            <div class="form-field"><label>Police Station <span class="req">*</span></label><input type="text" id="addrPs" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Block <span class="req">*</span></label><input type="text" id="addrBlock" required></div>
+            <div class="form-field"><label>District <span class="req">*</span></label><input type="text" id="addrDist" required></div>
+            <div class="form-field"><label>State <span class="req">*</span></label><input type="text" id="addrState" required></div>
+            <div class="form-field"><label>Pin Code <span class="req">*</span></label><input type="text" id="addrPin" required></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>Hostel Admission</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Hostel Admission Date <span class="req">*</span></label>
+              <input type="date" id="admissionDate" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" id="submitBtn" class="login-btn">Submit Registration</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    Smart Hostel Student Information System &middot; Einstein Academy of Technology and Management
+  </footer>
+
+  <script type="module" src="js/register.js"></script>
+</body>
+</html>

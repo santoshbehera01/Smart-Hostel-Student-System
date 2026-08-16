@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login — Hostel Portal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="institute-bar">
+    <div class="logo-badge">🎓</div>
+    <div>
+      <h1>Einstein Academy of Technology and Management</h1>
+      <small>Smart Hostel Student Information System</small>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="student-login.html" class="active">Student Login</a>
+    <a href="notice-board.html">Notice Board</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="admin-login.html">Admin</a>
+  </nav>
+
+  <main>
+    <section class="standalone-login">
+      <div class="login-box">
+        <h3>🎓 Student Login</h3>
+        <p class="box-sub">Log in with your Registration Number</p>
+
+        <div class="error-msg" id="studentLoginError"></div>
+        <div class="success-msg" id="studentLoginSuccess"></div>
+
+        <form id="studentLoginForm">
+          <div class="field-group">
+            <label for="studentRegdNo">Registration Number</label>
+            <input type="text" id="studentRegdNo" placeholder="e.g. 24013....." required>
+          </div>
+          <div class="field-group">
+            <label for="studentPassword">Password</label>
+            <input type="password" id="studentPassword" placeholder="Enter password" required>
+            <button type="button" class="toggle-pw" data-target="studentPassword">👁️</button>
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="login-links">
+          <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+          <a href="register.html">New Applicant? Click here to Register</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Smart Hostel Student Information System &middot; Einstein Academy of Technology and Management
+  </footer>
+
+  <script type="module" src="js/student-login.js"></script>
+</body>
+</html>

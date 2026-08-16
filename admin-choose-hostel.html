@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Hostel — Admin</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="institute-bar">
+    <div class="logo-badge">🎓</div>
+    <div>
+      <h1>Einstein Academy of Technology and Management</h1>
+      <small>Admin Panel</small>
+    </div>
+    <div style="margin-left:auto;">
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <main class="choose-hostel-wrap">
+    <h2 class="page-title">Choose a Hostel to Manage</h2>
+    <p class="page-sub">You'll only see and manage this hostel's data until you switch.</p>
+
+    <div class="hostel-choice-grid">
+      <button class="hostel-choice-card" data-hostel="main-boys-hostel">
+        <div class="hostel-choice-icon">🏢</div>
+        <h3>Main Boys Hostel</h3>
+      </button>
+      <button class="hostel-choice-card" data-hostel="e-block-hostel">
+        <div class="hostel-choice-icon">🏢</div>
+        <h3>E-Block Hostel</h3>
+      </button>
+    </div>
+  </main>
+
+  <script type="module">
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      sessionStorage.clear();
+      window.location.href = 'index.html';
+    });
+
+    document.querySelectorAll('.hostel-choice-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sessionStorage.setItem('shp-selectedHostel', btn.dataset.hostel);
+        window.location.href = 'admin-dashboard.html';
+      });
+    });
+
+    // Basic guard: must have logged in as admin first
+    if(!sessionStorage.getItem('shp-adminId')){
+      window.location.href = 'admin-login.html';
+    }
+  </script>
+
+</body>
+</html>
