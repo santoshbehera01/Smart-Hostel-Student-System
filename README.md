@@ -8,7 +8,7 @@ A production web portal for hostel students to register, log in, and manage thei
 
 ## Overview
 
-Built for **Einstein Academy of Technology and Management**, this system covers two hostels **Main Boys Hostel** and **E-Block Hostel** — with fully independent data, approvals, and notices per hostel, managed through a single Admin account.
+Built for **Einstein Academy of Technology and Management**, this system covers two hostels **Main Boys Hostel** and **E-Block Hostel** with fully independent data, approvals, and notices per hostel, managed through a single Admin account.
 
 ## Features
 
