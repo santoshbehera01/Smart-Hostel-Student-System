@@ -401,6 +401,34 @@ input, select, textarea{ font-family:inherit; }
 @media (max-width:600px){ .login-boxes{ flex-direction:column; } }
 @media (max-width:640px){ .institute-bar .logo-badge{ height:48px; } }
 
+/* ============================================================
+   MAIN FOOTER
+   ============================================================ */
+.main-footer{ background:var(--navy-dark); color:rgba(255,255,255,0.85); margin-top:40px; }
+.footer-grid{
+  max-width:1200px; margin:0 auto; padding:40px 26px 24px;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:28px;
+}
+.footer-col h4{ font-family:var(--font-heading); color:#fff; font-size:.92rem; margin-bottom:12px; }
+.footer-col p{ font-size:.82rem; line-height:1.6; color:rgba(255,255,255,0.7); margin-bottom:6px; }
+.footer-col a{ display:block; font-size:.82rem; color:rgba(255,255,255,0.75); margin-bottom:8px; transition:color .2s ease; }
+.footer-col a:hover{ color:#fff; }
+
+.footer-hostel-block{ display:flex; flex-direction:column; margin-bottom:14px; font-size:.82rem; }
+.footer-hostel-block strong{ color:#fff; margin-bottom:3px; }
+.footer-hostel-block span{ color:rgba(255,255,255,0.7); }
+.footer-muted{ color:rgba(255,255,255,0.6); font-size:.82rem; }
+
+.footer-map{ border-radius:var(--radius-md); overflow:hidden; }
+.footer-map iframe{ display:block; filter:grayscale(15%); }
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.12);
+  text-align:center; padding:16px 20px; font-size:.78rem; color:rgba(255,255,255,0.65);
+}
+.footer-bottom a{ color:#fff; font-weight:600; }
+.footer-bottom a:hover{ text-decoration:underline; }
+
 /* Notice Board */
 .notice-card{
   border-left:4px solid var(--steel); padding:14px 18px; margin-bottom:12px;
