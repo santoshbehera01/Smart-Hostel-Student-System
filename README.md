@@ -1,6 +1,6 @@
 # Smart Hostel Student Information System
 
-A production web portal for hostel students to register, log in, and manage their own records — with a full Admin panel to manage two hostels' data, approvals, leave requests, complaints, notices, and gallery, kept completely separate per hostel.
+A production web portal for hostel students to register, log in, and manage their own records with a full Admin panel to manage two hostels' data, approvals, leave requests, complaints, notices, and gallery, kept completely separate per hostel.
 
 **Live site:** https://eatm-hostel-student-system.vercel.app
 
