@@ -404,7 +404,7 @@ input, select, textarea{ font-family:inherit; }
 /* ============================================================
    MAIN FOOTER
    ============================================================ */
-.main-footer{ background:var(--navy-dark); color:rgba(255,255,255,0.85); margin-top:40px; }
+.main-footer{ background:#1B1B1B; color:rgba(255,255,255,0.85); margin-top:40px; }
 .footer-grid{
   max-width:1200px; margin:0 auto; padding:40px 26px 24px;
   display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:28px;
