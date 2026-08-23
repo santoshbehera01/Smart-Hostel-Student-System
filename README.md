@@ -13,7 +13,7 @@ Built for **Einstein Academy of Technology and Management**, this system covers 
 ## Features
 
 ### Public Pages
-- **Home** — hostel photo, college info, Student Login and Admin Login entry points
+- **Home** hostel photo, college info, Student Login and Admin Login entry points
 - **Student Registration** — full profile form with email verification via a 6-digit OTP before submission
 - **Notice Board** — combined notices from both hostels, tagged by hostel
 - **Gallery** — hostel photos, Admin-uploaded only
