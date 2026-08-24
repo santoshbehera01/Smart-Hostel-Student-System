@@ -103,7 +103,9 @@ input, select, textarea{ font-family:inherit; }
 
 .login-boxes{
   display:flex; gap:22px; max-width:800px; margin:30px auto 60px; padding:0 20px; flex-wrap:wrap;
+  justify-content:center;
 }
+.login-card-single{ max-width:340px; }
 
 /* Clickable home-page cards (link to the actual login pages) */
 .login-card{
