@@ -48,6 +48,16 @@ input, select, textarea{ font-family:inherit; }
 }
 .admin-hostel-tag{ font-size:.85rem; color:var(--text-muted); }
 .admin-hostel-tag b{ color:var(--navy-dark); }
+
+/* "New Applicant? Register" tag, right side of header */
+.header-register-tag{
+  margin-left:auto; text-align:right; padding:6px 14px;
+  border-left:2px solid var(--border);
+}
+.header-register-tag span{ display:block; font-size:.78rem; color:var(--text-muted); }
+.header-register-tag strong{ display:block; font-size:.92rem; color:var(--navy); margin-top:2px; transition:color .2s ease; }
+.header-register-tag:hover strong{ color:var(--steel); }
+@media (max-width:700px){ .header-register-tag{ display:none; } }
 .institute-bar h1{ font-family:var(--font-heading); font-weight:700; font-size:1.08rem; color:var(--text-main); }
 .institute-bar small{ display:block; font-size:.75rem; color:var(--text-muted); }
 
