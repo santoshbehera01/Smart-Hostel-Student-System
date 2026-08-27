@@ -65,6 +65,8 @@ input, select, textarea{ font-family:inherit; }
 .main-nav{ background:var(--navy-dark); border-bottom:none; display:flex; gap:4px; padding:0 20px; overflow-x:auto; }
 .main-nav a{ padding:14px 16px; font-size:.88rem; font-weight:500; color:rgba(255,255,255,0.85); border-bottom:3px solid transparent; white-space:nowrap; }
 .main-nav a:hover, .main-nav a.active{ color:#fff; border-bottom-color:#fff; }
+.main-nav a.nav-emergency{ color:#FF8A80; font-weight:700; }
+.main-nav a.nav-emergency:hover, .main-nav a.nav-emergency.active{ color:#FFB3AB; border-bottom-color:#FF8A80; }
 
 /* Home layout */
 .home-hero{ max-width:760px; margin:26px auto 20px; padding:0 20px; text-align:center; }
@@ -466,3 +468,25 @@ input, select, textarea{ font-family:inherit; }
 .contact-pill{ background:#F8FBFD; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 14px; margin-bottom:10px; }
 .contact-pill label{ font-size:.7rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.03em; }
 .contact-pill .value{ font-size:.9rem; font-weight:600; margin-top:3px; }
+
+/* Emergency Contact page */
+.emergency-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
+.emergency-card{
+  background:var(--card-white); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:22px; text-align:center; box-shadow:var(--shadow-card);
+}
+.emergency-card label{ display:block; font-size:.82rem; color:var(--text-muted); margin-bottom:8px; font-weight:500; }
+.emergency-card a{ font-family:var(--font-heading); font-size:1.4rem; font-weight:700; color:var(--navy-dark); }
+.emergency-card.emergency-danger{ border-color:rgba(193,58,58,0.3); background:var(--danger-bg); }
+.emergency-card.emergency-danger a{ color:var(--danger); }
+.emergency-card.emergency-highlight{ border-color:rgba(31,107,58,0.3); background:#EFF7F0; }
+.emergency-card.emergency-highlight a{ color:var(--navy); }
+
+/* Rules & Regulations page */
+.rules-list{ padding-left:22px; }
+.rules-list li{ font-size:.92rem; line-height:1.7; color:var(--text-main); margin-bottom:14px; }
+.rules-signature{ text-align:right; font-weight:600; color:var(--navy-dark); margin-top:20px; }
+
+/* Hostel Committee table */
+.committee-table{ min-width:520px; }
+.committee-table td:first-child{ width:60px; color:var(--text-muted); }
