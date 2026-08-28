@@ -49,18 +49,19 @@ input, select, textarea{ font-family:inherit; }
 .admin-hostel-tag{ font-size:.85rem; color:var(--text-muted); }
 .admin-hostel-tag b{ color:var(--navy-dark); }
 
-/* "EATM Hostel System" brand text, right after the logo */
+/* Right-side group: brand text + register tag, pushed to the far right */
+.header-right-group{ margin-left:auto; display:flex; align-items:center; }
 .header-brand{
-  padding-left:18px; margin-left:2px; border-left:2px solid var(--border);
-  display:flex; align-items:baseline; gap:5px; white-space:nowrap;
+  display:flex; flex-direction:column; align-items:flex-end; text-align:right;
+  padding-right:16px; line-height:1.25;
 }
-.header-brand-main{ font-family:var(--font-heading); font-weight:800; font-size:1.15rem; color:var(--navy-dark); letter-spacing:.01em; }
-.header-brand-sub{ font-family:var(--font-heading); font-weight:500; font-size:1.05rem; color:var(--steel); }
+.header-brand-main{ font-family:var(--font-heading); font-weight:800; font-size:1.05rem; color:var(--navy-dark); letter-spacing:.02em; }
+.header-brand-sub{ font-family:var(--font-heading); font-weight:500; font-size:.85rem; color:var(--steel); }
 @media (max-width:820px){ .header-brand{ display:none; } }
 
 /* "New Applicant? Register" tag, right side of header */
 .header-register-tag{
-  margin-left:auto; text-align:right; padding:6px 14px;
+  text-align:right; padding:6px 14px;
   border-left:2px solid var(--border);
 }
 .header-register-tag span{ display:block; font-size:.78rem; color:var(--text-muted); }
