@@ -500,3 +500,65 @@ input, select, textarea{ font-family:inherit; }
 /* Hostel Committee table */
 .committee-table{ min-width:520px; }
 .committee-table td:first-child{ width:60px; color:var(--text-muted); }
+
+/* ============================================================
+   HOME PAGE — Stats, Features, Notices Preview, Quick Access
+   ============================================================ */
+
+/* Stats strip */
+.stats-strip{
+  display:flex; justify-content:center; gap:0; max-width:760px; margin:0 auto 10px; padding:0 20px;
+  flex-wrap:wrap;
+}
+.stat-item{
+  flex:1; min-width:120px; text-align:center; padding:14px 10px;
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child{ border-right:none; }
+.stat-item strong{ display:block; font-family:var(--font-heading); font-size:1.5rem; color:var(--navy-dark); }
+.stat-item span{ font-size:.78rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.03em; }
+
+/* Shared section heading used by the sections below */
+.section-center-title{
+  text-align:center; font-family:var(--font-heading); color:var(--navy-dark);
+  font-size:1.25rem; margin-bottom:24px;
+}
+.section-center-cta{ text-align:center; margin-top:18px; }
+.section-center-cta a{ color:var(--navy); font-weight:600; font-size:.9rem; }
+.section-center-cta a:hover{ color:var(--steel); }
+
+/* Why Our Hostel — features grid */
+.features-section{ max-width:1000px; margin:50px auto; padding:0 20px; }
+.features-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:20px; }
+.feature-card{
+  background:var(--card-white); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:26px 20px; text-align:center; box-shadow:var(--shadow-card);
+}
+.feature-icon{ font-size:1.8rem; margin-bottom:12px; }
+.feature-card h4{ font-family:var(--font-heading); font-size:.98rem; color:var(--navy-dark); margin-bottom:8px; }
+.feature-card p{ font-size:.84rem; color:var(--text-muted); line-height:1.55; }
+
+/* Latest Notices preview */
+.notices-preview-section{ max-width:1000px; margin:50px auto; padding:0 20px; }
+.notices-preview-grid{ display:flex; gap:18px; flex-wrap:wrap; }
+.notice-preview-card{
+  flex:1; min-width:220px; background:var(--card-white); border:1px solid var(--border);
+  border-left:4px solid var(--steel); border-radius:0 var(--radius-md) var(--radius-md) 0;
+  padding:16px 18px; box-shadow:var(--shadow-card);
+}
+.notice-preview-card h4{ font-size:.92rem; color:var(--navy-dark); margin-bottom:6px; }
+.notice-preview-card p{ font-size:.82rem; color:var(--text-muted); line-height:1.5; }
+.notice-preview-card small{ display:block; margin-top:8px; color:var(--steel); font-size:.72rem; font-weight:600; }
+
+/* Quick Access tiles */
+.quick-access-section{ max-width:1000px; margin:50px auto 60px; padding:0 20px; }
+.quick-access-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:16px; }
+.quick-access-tile{
+  background:var(--card-white); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:22px 14px; text-align:center; box-shadow:var(--shadow-card);
+  font-size:1.6rem; transition:transform .2s ease;
+}
+.quick-access-tile:hover{ transform:translateY(-3px); }
+.quick-access-tile span{ display:block; font-family:var(--font-heading); font-size:.82rem; color:var(--navy-dark); margin-top:10px; }
+.quick-access-tile.quick-access-emergency{ border-color:rgba(193,58,58,0.3); background:var(--danger-bg); }
+.quick-access-tile.quick-access-emergency span{ color:var(--danger); }
