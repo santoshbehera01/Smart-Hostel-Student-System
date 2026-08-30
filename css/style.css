@@ -562,3 +562,30 @@ input, select, textarea{ font-family:inherit; }
 .quick-access-tile span{ display:block; font-family:var(--font-heading); font-size:.82rem; color:var(--navy-dark); margin-top:10px; }
 .quick-access-tile.quick-access-emergency{ border-color:rgba(193,58,58,0.3); background:var(--danger-bg); }
 .quick-access-tile.quick-access-emergency span{ color:var(--danger); }
+
+/* Warden contact boxes on Emergency Contact page */
+.contact-boxes-grid{ display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
+
+/* Nav dropdown (Student Life) */
+.nav-dropdown{ position:relative; display:inline-flex; }
+.nav-dropdown-toggle{
+  background:none; border:none; cursor:pointer; font-family:inherit;
+  padding:14px 16px; font-size:.88rem; font-weight:500; color:rgba(255,255,255,0.85);
+  border-bottom:3px solid transparent; white-space:nowrap; display:flex; align-items:center; gap:4px;
+}
+.nav-dropdown-toggle:hover, .nav-dropdown-toggle.active{ color:#fff; border-bottom-color:#fff; }
+.nav-caret{ font-size:.7rem; }
+.nav-dropdown-menu{
+  display:none; position:fixed; min-width:200px;
+  background:var(--navy-dark); border:none; border-radius:0 0 var(--radius-md) var(--radius-md);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25); z-index:200; overflow:hidden;
+}
+.nav-dropdown-menu.open{ display:block; }
+.nav-dropdown-menu a{
+  display:block; padding:14px 20px; font-size:.85rem; font-weight:600; color:#fff !important;
+  border-bottom:1px solid rgba(255,255,255,0.15); background:transparent;
+}
+.nav-dropdown-menu a:last-child{ border-bottom:none; }
+.nav-dropdown-menu a:hover, .nav-dropdown-menu a.active{
+  background:rgba(255,255,255,0.1); color:#fff !important;
+}
