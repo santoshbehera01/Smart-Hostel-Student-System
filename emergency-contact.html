@@ -22,15 +22,22 @@
     </div>
   </header>
 
-  <nav class="main-nav">
+    <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="student-login.html">Student Login</a>
-    <a href="notice-board.html">Notice Board</a>
+    <a href="notice-board.html">Notice &amp; Events</a>
     <a href="hostel-committee.html">Hostel Committee</a>
     <a href="rules-regulations.html">Rules &amp; Regulations</a>
+    <div class="nav-dropdown">
+      <button type="button" class="nav-dropdown-toggle">Student Life <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="anti-ragging-cell.html">Anti Ragging Cell</a>
+        <a href="health-facilities.html">Health Facilities</a>
+        <a href="sports-facilities.html">Sports Facilities</a>
+      </div>
+    </div>
+    <a href="emergency-contact.html" class="active">Emergency Contact</a>
     <a href="gallery.html">Gallery</a>
-    <a href="emergency-contact.html" class="active nav-emergency">Emergency Contact</a>
-    <a href="contact.html">Contact</a>
   </nav>
 
   <main class="register-wrap">
@@ -63,6 +70,22 @@
         <a href="tel:7504132077">7504132077</a>
       </div>
     </div>
+
+    <h3 class="section-center-title" style="margin-top:44px;">Warden Contact Details</h3>
+    <div class="contact-boxes-grid">
+      <div class="card contact-card">
+        <h3>Hostel Superintendent</h3>
+        <div class="contact-pill"><label>Name</label><div class="value">Prof. Anil Panda</div></div>
+        <div class="contact-pill"><label>Phone</label><div class="value"><a href="tel:9853769835">9853769835</a></div></div>
+        <div class="contact-pill"><label>Email</label><div class="value">eatmhostels@gmail.com</div></div>
+      </div>
+      <div class="card contact-card">
+        <h3>Deputy Superintendent</h3>
+        <div class="contact-pill"><label>Name</label><div class="value">Prof. Puspita Acharya</div></div>
+        <div class="contact-pill"><label>Phone</label><div class="value">To be updated</div></div>
+        <div class="contact-pill"><label>Email</label><div class="value">eatmhostels@gmail.com</div></div>
+      </div>
+    </div>
   </main>
 
   <footer class="main-footer">
@@ -76,11 +99,14 @@
         <h4>Quick Links</h4>
         <a href="index.html">Home</a>
         <a href="student-login.html">Student Login</a>
-        <a href="notice-board.html">Notice Board</a>
+        <a href="notice-board.html">Notice &amp; Events</a>
         <a href="hostel-committee.html">Hostel Committee</a>
         <a href="rules-regulations.html">Rules &amp; Regulations</a>
-        <a href="gallery.html">Gallery</a>
+        <a href="anti-ragging-cell.html">Anti Ragging Cell</a>
+        <a href="health-facilities.html">Health Facilities</a>
+        <a href="sports-facilities.html">Sports Facilities</a>
         <a href="emergency-contact.html">Emergency Contact</a>
+        <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
       </div>
 
@@ -105,10 +131,11 @@
     </div>
 
     <div class="footer-bottom">
-      © <span id="footerYear"></span> Einstein Academy of Technology and Management | All Rights Reserved | Developed By <a href="https://santosh-kumar-profile.vercel.app/" target="_blank" rel="noopener">Santosh Kumar</a>
+      © <span id="footerYear"></span> Einstein Academy of Technology and Management | All Rights Reserved | Developed By <a href="https://santosh-kumar-profile.vercel.app/" target="_blank" rel="noopener">Santosh Ku.</a>
     </div>
   </footer>
 
   <script type="module" src="js/footer.js"></script>
+  <script src="js/nav-dropdown.js"></script>
 </body>
 </html>
