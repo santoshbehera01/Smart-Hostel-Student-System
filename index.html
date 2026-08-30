@@ -22,15 +22,22 @@
     </div>
   </header>
 
-  <nav class="main-nav">
+    <nav class="main-nav">
     <a href="index.html" class="active">Home</a>
     <a href="student-login.html">Student Login</a>
-    <a href="notice-board.html">Notice Board</a>
+    <a href="notice-board.html">Notice &amp; Events</a>
     <a href="hostel-committee.html">Hostel Committee</a>
     <a href="rules-regulations.html">Rules &amp; Regulations</a>
+    <div class="nav-dropdown">
+      <button type="button" class="nav-dropdown-toggle">Student Life <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="anti-ragging-cell.html">Anti Ragging Cell</a>
+        <a href="health-facilities.html">Health Facilities</a>
+        <a href="sports-facilities.html">Sports Facilities</a>
+      </div>
+    </div>
+    <a href="emergency-contact.html">Emergency Contact</a>
     <a href="gallery.html">Gallery</a>
-    <a href="emergency-contact.html" class="nav-emergency">Emergency Contact</a>
-    <a href="contact.html">Contact</a>
   </nav>
 
   <main>
@@ -120,11 +127,14 @@
         <h4>Quick Links</h4>
         <a href="index.html">Home</a>
         <a href="student-login.html">Student Login</a>
-        <a href="notice-board.html">Notice Board</a>
+        <a href="notice-board.html">Notice &amp; Events</a>
         <a href="hostel-committee.html">Hostel Committee</a>
         <a href="rules-regulations.html">Rules &amp; Regulations</a>
-        <a href="gallery.html">Gallery</a>
+        <a href="anti-ragging-cell.html">Anti Ragging Cell</a>
+        <a href="health-facilities.html">Health Facilities</a>
+        <a href="sports-facilities.html">Sports Facilities</a>
         <a href="emergency-contact.html">Emergency Contact</a>
+        <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
       </div>
 
@@ -149,12 +159,13 @@
     </div>
 
     <div class="footer-bottom">
-      © <span id="footerYear"></span> Einstein Academy of Technology and Management | All Rights Reserved | Developed By <a href="https://santosh-kumar-profile.vercel.app/" target="_blank" rel="noopener">Santosh Kumar</a>
+      © <span id="footerYear"></span> Einstein Academy of Technology and Management | All Rights Reserved | Developed By <a href="https://santosh-kumar-profile.vercel.app/" target="_blank" rel="noopener">Santosh Ku.</a>
     </div>
   </footer>
 
   <script type="module" src="js/carousel.js"></script>
   <script type="module" src="js/home-notices.js"></script>
   <script type="module" src="js/footer.js"></script>
+  <script src="js/nav-dropdown.js"></script>
 </body>
 </html>
