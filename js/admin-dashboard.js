@@ -370,7 +370,15 @@ async function loadTrash(){
       await deleteDoc(ref);
       await deleteDoc(doc(db, "hostels", hostelId, "directory", s.regdNo));
       await deleteDoc(doc(db, "hostels", hostelId, "idcards", btn.dataset.id));
+      await deleteDoc(doc(db, "emailDirectory", s.email));
+      await deleteDoc(doc(db, "phoneDirectory", s.phone));
       loadTrash();
+      alert(
+        `Record deleted from the database.\n\n` +
+        `IMPORTANT: The login account for "${s.email}" still exists in Firebase Authentication ` +
+        `and must be deleted there too before this email can be used for a new registration.\n\n` +
+        `Go to: Firebase Console → Authentication → Users → search "${s.email}" → Delete user.`
+      );
     });
   });
 }
