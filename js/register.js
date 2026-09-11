@@ -55,9 +55,21 @@ document.getElementById('sendOtpBtn').addEventListener('click', async () => {
 
   const sendBtn = document.getElementById('sendOtpBtn');
   sendBtn.disabled = true;
-  sendBtn.textContent = 'Sending...';
+  sendBtn.textContent = 'Checking...';
 
   try{
+    // ---- Check if this email is already registered, using OUR OWN emailDirectory ----
+    // (fetchSignInMethodsForEmail is unreliable/deprecated on modern Firebase projects
+    //  due to Email Enumeration Protection, so we don't rely on it.)
+    const existingSnap = await getDoc(doc(db, "emailDirectory", email));
+    if(existingSnap.exists()){
+      showError('This Email ID is already registered. Please use the Student Login page, or use a different email.');
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'Send OTP';
+      return;
+    }
+
+    sendBtn.textContent = 'Sending...';
     const res = await fetch(`${OTP_WORKER_URL}/send-otp`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -266,6 +278,9 @@ form.addEventListener('submit', async (e) => {
 
     // ---- Phone number marker (used only to detect duplicates in future registrations) ----
     await setDoc(doc(db, "phoneDirectory", phone), { regdNo, hostelId });
+
+    // ---- Email marker (used only to detect duplicates in future registrations) ----
+    await setDoc(doc(db, "emailDirectory", verifiedEmail), { regdNo, hostelId });
 
     showSuccess('🎉 Registration submitted successfully! Your account is now awaiting Admin approval. You will be able to log in once approved.');
     form.reset();
