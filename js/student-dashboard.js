@@ -204,7 +204,7 @@ function renderIdCard(){
     </div>
   `;
 
-  const verifyUrl = `${window.location.origin}${window.location.pathname.replace('student-dashboard.html','')}view-id.html?hostel=${hostelId}&id=${studentId}`;
+  const verifyUrl = `${window.location.origin}/view-id.html?hostel=${hostelId}&id=${studentId}`;
   // eslint-disable-next-line no-undef
   new QRCode(document.getElementById('qrBox'), { text: verifyUrl, width: 90, height: 90 });
 
