@@ -16,7 +16,7 @@
 
 const PHOTO_COUNT = 8;               // <-- change this to your total number of photos
 const PHOTO_EXTENSION = "jpg";       // <-- change to "png" if your photos are PNG files
-const AUTO_PLAY_MS = 5000;
+const AUTO_PLAY_MS = 3000;
 
 const PHOTOS = Array.from(
   { length: PHOTO_COUNT },
