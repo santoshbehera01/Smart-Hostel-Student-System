@@ -46,12 +46,12 @@ document.querySelectorAll('.nav-item').forEach(item => {
 
 function studentsRef(){ return collection(db, "hostels", hostelId, "students"); }
 
-async function sendNotification(to, name, subject, message){
+async function sendNotification(to, name, subject, message, ctaText, ctaUrl){
   try{
     await fetch(`${OTP_WORKER_URL}/send-notification`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ to, name, subject, message })
+      body: JSON.stringify({ to, name, subject, message, ctaText, ctaUrl })
     });
   } catch(err){
     console.error('Notification email failed:', err);
@@ -103,7 +103,8 @@ async function loadPending(){
       const s = snap2.data();
       await updateDoc(doc(db, "hostels", hostelId, "directory", s.regdNo), { status: "active" });
       await sendNotification(s.email, s.name, "Hostel Registration Approved",
-        `Your hostel registration (Regd No: ${s.regdNo}) has been approved. You can now log in using your Registration No and password.`);
+        `Your hostel registration (Regd No: <b>${s.regdNo}</b>) has been approved. You can now log in using your Registration No and password.`,
+        "Login Now", `${window.location.origin}/student-login.html`);
       loadPending();
       loadStudents();
     });
