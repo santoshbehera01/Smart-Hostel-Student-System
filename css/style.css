@@ -589,3 +589,44 @@ input, select, textarea{ font-family:inherit; }
 .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active{
   background:rgba(255,255,255,0.1); color:#fff !important;
 }
+
+/* ============================================================
+   MOBILE HAMBURGER NAVIGATION
+   ============================================================ */
+.nav-hamburger{
+  display:none; margin-left:auto; background:none; border:none; cursor:pointer;
+  font-size:1.5rem; color:var(--navy-dark); padding:6px 10px;
+}
+
+@media (max-width:768px){
+  .nav-hamburger{ display:block; }
+  .header-right-group{ display:none; } /* brand text + register tag already collapse; hide entirely on mobile, kept in menu instead */
+
+  .main-nav{
+    display:none; flex-direction:column; width:100%; overflow-x:visible;
+    padding:0; gap:0;
+  }
+  .main-nav.mobile-open{ display:flex; }
+  .main-nav a{
+    width:100%; padding:14px 20px; border-bottom:1px solid rgba(255,255,255,0.12);
+    border-left:3px solid transparent;
+  }
+  .main-nav a.active{ border-left-color:#fff; background:rgba(255,255,255,0.06); }
+
+  .nav-dropdown{ width:100%; display:block; }
+  .nav-dropdown-toggle{
+    width:100%; justify-content:space-between; padding:14px 20px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .nav-dropdown-menu{
+    display:none; position:static !important; box-shadow:none; border-radius:0;
+    background:rgba(0,0,0,0.18); width:100%;
+  }
+  .nav-dropdown-menu.open{ display:block; }
+  .nav-dropdown-menu a{
+    padding-left:38px; border-bottom:1px solid rgba(255,255,255,0.08); color:#fff !important;
+  }
+}
+@media (min-width:769px){
+  .nav-hamburger{ display:none; }
+}
