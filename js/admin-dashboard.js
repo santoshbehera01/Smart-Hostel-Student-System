@@ -4,10 +4,11 @@
 // (stored in sessionStorage as 'shp-selectedHostel').
 // ============================================================
 
-import { db, OTP_WORKER_URL, CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET } from './firebase-config.js';
+import { db, OTP_WORKER_URL, CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_CLOUD_NAME } from './firebase-config.js';
 import {
   collection, query, where, getDocs, doc, updateDoc, deleteDoc, getDoc, addDoc, setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { renderNoticeCard } from './notice-render.js';
 
 const hostelId = sessionStorage.getItem('shp-selectedHostel');
 const adminId = sessionStorage.getItem('shp-adminId');
@@ -485,13 +486,9 @@ async function loadNoticesAdmin(){
   snap.forEach(d => items.push({ id: d.id, ...d.data() }));
   items.sort((a,b) => b.createdAt - a.createdAt);
 
-  box.innerHTML = items.map(n => `
-    <div class="notice-card">
-      <h4>${escapeHtml(n.title)}</h4>
-      <p>${escapeHtml(n.body)}</p>
-      <button class="delete-notice-btn" data-id="${n.id}">Delete</button>
-    </div>
-  `).join('');
+  box.innerHTML = `<div class="notice-list-v2">` + items.map(n =>
+    renderNoticeCard(n, { footerHtml: `<button class="delete-notice-btn" data-id="${n.id}">Delete</button>` })
+  ).join('') + `</div>`;
 
   box.querySelectorAll('.delete-notice-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
@@ -502,14 +499,48 @@ async function loadNoticesAdmin(){
   });
 }
 
+async function uploadPdfToCloudinary(file){
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  formData.append('folder', 'hostel-portal/notices');
+  const uploadUrl = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`;
+  const res = await fetch(uploadUrl, { method: 'POST', body: formData });
+  const data = await res.json();
+  if(!data.secure_url) throw new Error('PDF upload failed.');
+  return data.secure_url;
+}
+
 document.getElementById('noticeForm').addEventListener('submit', async (e) => {
   e.preventDefault();
+  const submitBtn = e.target.querySelector('button[type="submit"]');
   const title = document.getElementById('noticeTitle').value.trim();
   const body = document.getElementById('noticeBody').value.trim();
-  if(!title || !body) return;
-  await addDoc(collection(db, "hostels", hostelId, "notices"), { title, body, createdAt: Date.now() });
-  document.getElementById('noticeForm').reset();
-  loadNoticesAdmin();
+  const pdfFile = document.getElementById('noticePdf').files[0];
+  if(!title) return;
+  if(!pdfFile && !body){
+    alert('Please either attach a PDF or write a description.');
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Posting...';
+  try{
+    let pdfUrl = null;
+    if(pdfFile) pdfUrl = await uploadPdfToCloudinary(pdfFile);
+
+    await addDoc(collection(db, "hostels", hostelId, "notices"), {
+      title, body: pdfUrl ? '' : body, pdfUrl, createdAt: Date.now()
+    });
+    document.getElementById('noticeForm').reset();
+    loadNoticesAdmin();
+  } catch(err){
+    console.error(err);
+    alert('Could not post notice: ' + err.message);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Post Notice';
+  }
 });
 
 /* ============================================================
