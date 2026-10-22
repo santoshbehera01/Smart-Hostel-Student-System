@@ -61,7 +61,14 @@
         <div class="card">
           <form id="noticeForm">
             <div class="form-field" style="margin-bottom:12px;"><label>Title</label><input type="text" id="noticeTitle" required></div>
-            <div class="form-field" style="margin-bottom:14px;"><label>Message</label><textarea id="noticeBody" rows="2" required></textarea></div>
+            <div class="form-field" style="margin-bottom:12px;">
+              <label>Attach PDF (optional)</label>
+              <input type="file" id="noticePdf" accept="application/pdf">
+            </div>
+            <div class="form-field" style="margin-bottom:14px;">
+              <label>Description (only shown if no PDF is attached)</label>
+              <textarea id="noticeBody" rows="2"></textarea>
+            </div>
             <button type="submit" class="submit-btn">Post Notice</button>
           </form>
         </div>
