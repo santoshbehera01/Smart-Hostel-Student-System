@@ -461,7 +461,7 @@ input, select, textarea{ font-family:inherit; }
 .notice-card h4{ font-size:.92rem; margin-bottom:4px; }
 .notice-card p{ font-size:.83rem; color:var(--text-muted); }
 .notice-card small{ display:block; margin-top:6px; color:var(--steel); font-size:.72rem; font-weight:600; }
-.delete-notice-btn{ position:absolute; top:12px; right:14px; background:var(--danger-bg); color:var(--danger); padding:4px 10px; border-radius:6px; font-size:.72rem; font-weight:600; }
+.delete-notice-btn{ display:inline-block; margin-top:8px; background:var(--danger-bg); color:var(--danger); padding:5px 12px; border-radius:6px; font-size:.72rem; font-weight:600; }
 
 /* Gallery */
 .gallery-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(160px,1fr)); gap:14px; }
@@ -630,3 +630,29 @@ input, select, textarea{ font-family:inherit; }
 @media (min-width:769px){
   .nav-hamburger{ display:none; }
 }
+
+
+/* ============================================================
+   NOTICE CARDS v2 — date + arrow title + PDF badge
+   ============================================================ */
+.notice-list-v2{ display:flex; flex-direction:column; width:100%; }
+.notice-item-v2{ padding:16px 4px; border-bottom:1px dashed var(--border); }
+.notice-item-v2:last-child{ border-bottom:none; }
+
+.notice-title-link, .notice-title-plain{
+  display:block; font-size:.95rem; font-weight:600; color:var(--navy-dark);
+  margin-bottom:6px; line-height:1.5;
+}
+.notice-title-link{ transition:color .2s ease; }
+.notice-title-link:hover{ color:var(--steel); }
+.notice-arrow{ color:var(--steel); font-weight:800; margin-right:4px; }
+.notice-pdf-badge{
+  display:inline-block; font-size:.7rem; font-weight:700; color:var(--danger);
+  background:var(--danger-bg); padding:2px 8px; border-radius:6px; margin-left:6px; vertical-align:middle;
+}
+.notice-desc{ font-size:.85rem; color:var(--text-muted); line-height:1.55; margin-bottom:6px; }
+
+.notice-meta-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:4px; }
+.notice-date{ font-size:.78rem; color:var(--text-muted); display:flex; align-items:center; gap:5px; }
+.notice-cal-icon{ font-size:.85rem; }
+.notice-hostel-tag{ font-size:.72rem; font-weight:600; color:var(--steel); background:#EFF7F0; padding:3px 10px; border-radius:999px; }
