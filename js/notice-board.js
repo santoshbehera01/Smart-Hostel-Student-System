@@ -1,5 +1,6 @@
 import { db } from './firebase-config.js';
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { renderNoticeCard } from './notice-render.js';
 
 const HOSTEL_LABELS = { "main-boys-hostel": "Main Boys Hostel", "e-block-hostel": "E-Block Hostel" };
 const HOSTEL_IDS = Object.keys(HOSTEL_LABELS);
@@ -17,13 +18,8 @@ async function load(){
   if(all.length === 0){ box.innerHTML = '<p class="muted-note">No notices right now.</p>'; return; }
   all.sort((a,b) => b.createdAt - a.createdAt);
 
-  box.innerHTML = all.map(n => `
-    <div class="notice-card">
-      <h4>${escapeHtml(n.title)}</h4>
-      <p>${escapeHtml(n.body)}</p>
-      <small>For: ${HOSTEL_LABELS[n.hostelId]}</small>
-    </div>
-  `).join('');
+  box.innerHTML = `<div class="notice-list-v2">` +
+    all.map(n => renderNoticeCard(n, { hostelLabel: HOSTEL_LABELS[n.hostelId] })).join('') +
+    `</div>`;
 }
-function escapeHtml(str){ const d = document.createElement('div'); d.textContent = str || ''; return d.innerHTML; }
 load();
